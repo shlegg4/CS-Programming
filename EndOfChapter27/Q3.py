@@ -9,23 +9,48 @@ class NodeClass:
         self.__data : str = ""
         self.__pointer : int = -1
 
-    def SetData(self, data : str):
+
+    @property
+    def data(self) -> str:
+        return self.__data
+
+    @data.setter
+    def data(self, data : str):
         self.__data = data
     
-    def SetPointer(self, pointer : int):
-        self.__pointer = pointer
 
-    def GetData(self) -> str:
-        return self.__data
-    
-    def GetPointer(self) -> int:
+    @property
+    def pointer(self) -> int:
         return self.__pointer
+
+    @pointer.setter
+    def pointer(self, pointer : int):
+        self.__pointer = pointer
+    
 
 
 class QueueClass:
     def __init__(self):
-        self.__queue = [NodeClass for _ in range(50)]
-        self.__head : int = -1
-        self.__tail : int = -1
+        self.__queue = [NodeClass() for _ in range(50)]
+        self.__head : int = 0
+        self.__tail : int = 0
 
-        
+    def JoinQueue(self, data : str):
+        self.__queue[self.__tail].data = data
+        self.__queue[self.__tail].pointer = self.__tail + 1
+        self.__tail += 1
+    
+    def LeaveQueue(self):
+        data = self.__queue[self.__head].data
+        self.__queue[self.__head].data = ""
+        self.__head += 1
+        return data
+
+
+queue = QueueClass()
+
+for i in range(10):
+    queue.JoinQueue(data = "hi {0}".format(i))
+
+print(queue.LeaveQueue())
+print(queue.LeaveQueue())
