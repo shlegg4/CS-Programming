@@ -1,6 +1,6 @@
 
 tickets = {"Breezer" : 4 , "Junior" : 0, "YoungAdult" : 2, "Adult" : 3}
-
+# dictionary to supply all possible ticket types and there corresponding values
 
 class SeasonTicketHolder:
     def __init__(self,accountHolderName : str, accountHolderEmail : str):
@@ -14,11 +14,14 @@ class PayAsYouGoTicketHolder(SeasonTicketHolder):
         super().__init__(accountHolderName, accountHolderEmail)
         self.__balance = 0 
     
+    # Purchasing a ticket requires supplying a valid ticket from the global dictionary supplied at top of file 
+    
     def PurchaseTicket(self,ticketType):
         try:
-            price = tickets.get(ticketType)
+            price = tickets.get(ticketType) # Inside try except block in order to detect whether or not a valid ticket is supplied
         except:
             print("Not a valid ticket")
+            return
         if(self.__balance - price > 0):
             self.__balance -= price
         else:

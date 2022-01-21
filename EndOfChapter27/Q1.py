@@ -34,7 +34,7 @@ class SavingsAccount(BankAccount):
 
     def Withdraw(self,amount : int):
         if(self.__overDraftLimit < self.__balance - amount):
-            self.__balance -= abs(amount)
+            self.__balance -= abs(amount)   #Absolute value so that amount is only positive
         else:
             print("Account holder is beyond their allowable over draft. Please pay fine of £100")
             self.__balance -= 100
