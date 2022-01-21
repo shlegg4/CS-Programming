@@ -1,3 +1,6 @@
+import datetime
+
+
 
 tickets = {"Breezer" : 4 , "Junior" : 0, "YoungAdult" : 2, "Adult" : 3}
 # dictionary to supply all possible ticket types and there corresponding values
@@ -35,4 +38,13 @@ class ContractTicketHolder(SeasonTicketHolder):
     def __init__(self, accountHolderName: str, accountHolderEmail: str, fixedFee : int = 20):
         super().__init__(accountHolderName, accountHolderEmail)
         self.__fixedFee = fixedFee
+        self.__monthOfLastPayment = datetime.date.today().month
+    
+    def PayContract(self):
+        curMonth = datetime.date.today().month
+        owed = (curMonth - self.__monthOfLastPayment)*self.__fixedFee
+        print("Owed : {0}".format(owed))
+
+
+newCustomer = ContractTicketHolder("A.Smith","xyz@abc.xx",10)
     
