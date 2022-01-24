@@ -45,6 +45,12 @@ class QueueClass:
         self.__queue[self.__head].data = ""
         self.__head += 1
         return data
+    
+    def Print(self):
+        pointer = self.__head
+        while pointer <= self.__tail -1 :
+            print("Data : {0} , Pointer : {1}".format(self.__queue[pointer].data, self.__queue[pointer].pointer) )
+            pointer = self.__queue[pointer].pointer
 
 
 queue = QueueClass()
@@ -54,3 +60,4 @@ for i in range(10):
 
 print(queue.LeaveQueue())
 print(queue.LeaveQueue())
+queue.Print()
