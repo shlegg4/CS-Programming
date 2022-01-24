@@ -81,3 +81,4 @@ class PersonalAccount(BankAccount):
 myAccount = PersonalAccount("Samuel Legg","1234",1.01)
 myAccount.Deposit(10)
 
+# The feature of object oriented programming that combines attributes and methods into a class is agregation

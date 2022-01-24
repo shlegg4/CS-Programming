@@ -1,6 +1,15 @@
 #python EndOfChapter27/Q2.py
 
 
+"""
+B)
+i) The season ticket holder attributes are declared private so that they can only be accessed using their getter and setter methods this makes the class more robust as attribute like ticketholdername cant be modified when the class is instantiated
+i) The methods are declared as public so that they can be accessed for manipulating attriutes without the attributes ever being directly manipulated
+
+
+"""
+
+
 import datetime
 
 
