@@ -56,7 +56,13 @@ class ContractTicketHolder(SeasonTicketHolder):
         curMonth = datetime.date.today().month
         owed = (curMonth - self.__monthOfLastPayment)*self.__fixedFee
         print("Owed : {0}".format(owed))
+    
+    
 
 
-newCustomer = ContractTicketHolder("A.Smith","xyz@abc.xx",10)
+
+newCustomer = PayAsYouGoTicketHolder("Sam", "Sam@ryde")
+newCustomer.Deposit(5)
+newCustomer.PurchaseTicket("Breezer")
+newCustomer.PurchaseTicket("Breezer")
     
