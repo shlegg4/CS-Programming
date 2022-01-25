@@ -22,7 +22,11 @@ class SeasonTicketHolder:
         self.__accountHolderName = accountHolderName
         self.__accountHolderEmail = accountHolderEmail
 
+    def __str__(self) -> str:
+        return "Account Holder Name : {0} , Account Holder Email : {1} ,".format(self.__accountHolderName ,self.__accountHolderEmail)
 
+    def Print(self):
+        print(self)
 
 class PayAsYouGoTicketHolder(SeasonTicketHolder):
     def __init__(self, accountHolderName: str, accountHolderEmail: str):
@@ -40,11 +44,14 @@ class PayAsYouGoTicketHolder(SeasonTicketHolder):
         if(self.__balance - price > 0):
             self.__balance -= price
         else:
-            depositAmount = input("Account overdrawn on purchase. Deposit required")
+            depositAmount = input("Account overdrawn on purchase. Deposit required : ")
             self.Deposit(depositAmount)
 
     def Deposit(self,amount):
-        self.__balance += amount
+        self.__balance += int(amount)
+
+    def __str__(self) -> str:
+        return super().__str__() + " Balance : £{0}".format(self.__balance)
 
 class ContractTicketHolder(SeasonTicketHolder):
     def __init__(self, accountHolderName: str, accountHolderEmail: str, fixedFee : int = 20):
@@ -56,13 +63,19 @@ class ContractTicketHolder(SeasonTicketHolder):
         curMonth = datetime.date.today().month
         owed = (curMonth - self.__monthOfLastPayment)*self.__fixedFee
         print("Owed : {0}".format(owed))
+
+    def __str__(self) -> str:
+        return super().__str__() + " Fixed Fee : £{0} , Month OF Last Payment : {1}".format(self.__fixedFee,self.__monthOfLastPayment)
     
     
 
 
 
-newCustomer = PayAsYouGoTicketHolder("Sam", "Sam@ryde")
-newCustomer.Deposit(5)
-newCustomer.PurchaseTicket("Breezer")
-newCustomer.PurchaseTicket("Breezer")
-    
+FirstCustomer = PayAsYouGoTicketHolder("Sam", "Sam@ryde")
+FirstCustomer.Deposit(5)
+FirstCustomer.PurchaseTicket("Breezer")
+FirstCustomer.PurchaseTicket("Breezer")
+FirstCustomer.Print()
+SecondCustomer = ContractTicketHolder("TJ","TJ@ryde",10)
+SecondCustomer.Print()
+
