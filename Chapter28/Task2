@@ -9,9 +9,13 @@ Assembly Code:
         LDD A
         CMP #0
         JPE ELSE
+        STO B
+        JMP ENDIF
+        DEC ACC
+        STO B
         JMP ENDIF
 ELSE:   DEC ACC
-ENDIF:  STO B
-        ...
+
+ENDIF:  ...
 
 

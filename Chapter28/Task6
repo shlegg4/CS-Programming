@@ -1,1 +1,10 @@
-rvnalrj
+JOINQ:  STI TAILPTR
+        LDD TAILPTR
+        INC ACC
+        STO TAILPTR
+        JPM ENDQ
+LEAVEQ: LDI HEADPTR
+        OUT ACC
+        LDD HEADPTR
+        INC ACC
+        
