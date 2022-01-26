@@ -1,0 +1,11 @@
+        LDD #0
+        STO Count
+REPEAT: LDM Count
+        INC ACC
+        STO Count
+        IN ACC
+        CMP #78     #ABCDEFGHIJKLMN
+        JPN REPEAT
+
+
+        
