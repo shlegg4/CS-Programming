@@ -1,3 +1,5 @@
+#python AssemblyLanguageCompiler/Compiler.py
+
 import pickle
 import linecache
 import sys
