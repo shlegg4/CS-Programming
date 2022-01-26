@@ -1,0 +1,17 @@
+IF A <> 0 
+    THEN
+        B <- A
+    ELSE
+        B <- B-1
+
+Assembly Code:
+
+        LDD A
+        CMP #0
+        JPE ELSE
+        JMP ENDIF
+ELSE:   DEC ACC
+ENDIF:  STO B
+        ...
+
+
