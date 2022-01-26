@@ -42,6 +42,8 @@ class Source:
                             infixLine.append(lexeme.replace("\n",""))     #If value passed rather than address
                         elif "@" in lexeme:
                             infixLine.append(lexeme.replace("@","").replace("\n",""))
+                        elif lexeme.replace("\n","") == "ACC" or lexeme.replace("\n","") == "IX":
+                            infixLine.append(lexeme.replace("\n",""))
                         else:
                             print("Syntax Error encountered on line {0}.".format(self._linePntr))
                             sys.exit()
