@@ -11,10 +11,9 @@ Assembly Code:
         JPE ELSE
         STO B
         JMP ENDIF
-        DEC ACC
-        STO B
         JMP ENDIF
 ELSE:   DEC ACC
+        STO B
 
 ENDIF:  ...
 
