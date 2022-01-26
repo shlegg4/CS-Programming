@@ -1,0 +1,27 @@
+A <- 0011
+B <- 0101
+
+        LDD B
+        XOR #&F
+        INC ACC
+        ADD A
+        AND #4
+        CMP #0
+        JPE True
+        JPM False
+
+True:   ...
+        JPM ENDIF
+False:  ...
+        JPM ENDIF
+ENDIF:
+
+
+
+Lines 5 and 6 convert B into two complement form (-B)
+Line 7 adds A to -B 
+IF The result of A - B is +ve then A > B
+To check if result is +Ve Determine whether or not leading bit is 0 
+Perform AND with ACC and 1000
+CMP with 0 (0111 AND 1000 -> 0 therefore +Ve)
+JPE True (Jump to code that we perform if A > B )

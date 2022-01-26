@@ -1,0 +1,15 @@
+        LDM #1
+        STO Number
+        LDM #0
+        STO Total
+        LDM #5
+        STO Max
+REPEAT: LDD Total
+        ADD Number
+        STO Total
+        LDD Number
+        INC ACC
+        STO Number
+        LDD Number
+        CMP Max
+        JP
