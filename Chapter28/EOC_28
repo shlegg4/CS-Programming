@@ -1,0 +1,31 @@
+Compares two bits at the same position using a boolean and comparison if the result is true it puts a 1 at the same position else it puts a 0
+
+AND &0F
+
+
+IN 
+AND Mask
+LSL #4
+STO RESULT
+IN 
+AND Mask
+OR RESULT
+STO RESULT
+Mask : &0F
+Result :
+
+
+        LDR #00
+Loop:   LDX STRING
+        INC IX
+        OUT 
+        CMP #33
+        JPN Loop
+        END
+
+65 A b c d e f g h i j k l m n o p qrstuvwxyz
+H 72
+E 69
+L 76
+P 80
+! 33

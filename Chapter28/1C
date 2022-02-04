@@ -1,0 +1,16 @@
+DEF @Mask
+DEF @Result
+LDM #7
+STO @Mask
+IN
+OUT
+AND @Mask
+OUT
+LSL #4
+STO @RESULT
+IN
+AND @Mask
+OUT
+ADD @RESULT
+STO @RESULT
+END

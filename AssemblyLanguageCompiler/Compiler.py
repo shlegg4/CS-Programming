@@ -155,5 +155,5 @@ class Source:
                 
 
 
-source = Source("AssemblyLanguageCompiler/SourceCode.txt")
+source = Source("Chapter28/1C")
 source.Read()
