@@ -30,7 +30,7 @@ class Stack:
     
     def POP(self):
         if not(self.LimitReached):
-            if(abs(self.topPNTR - self.basePNTR) > 0):
+            if(self.topPNTR == self.basePNTR):
                 if(self.topPNTR > 0):
                     self.topPNTR -= 1
                 else:

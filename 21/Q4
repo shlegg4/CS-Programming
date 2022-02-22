@@ -1,0 +1,12 @@
+a)
+    i) A protocol is an agreement made by sender and recieiver in order to ensure that data is sent safely.
+    ii) Browser
+    iii) web server
+    iv) Ensures the website is genuine and whether or not data can be sent securely.
+
+b)
+    The handshake protocol will request from the server the SSL certificate and public key. The browser then utilises the public key to perform
+    symmetric key encryption to transfer data.
+
+c)
+    Email and 
