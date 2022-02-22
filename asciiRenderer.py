@@ -28,6 +28,9 @@ class val:
         self.value = value
         self.derivative = derivative
 
+    def __neg__(self):
+        return val(-self.value,-self.derivative)
+
     def __add__(self,other):
         if isinstance(other,val):
             return val(self.value + other.value, self.derivative + other.derivative)
@@ -93,27 +96,29 @@ def norm(tVal, sVal):
 
 def render(xAngle = 0,zAngle = 0):
     output = [[" " for _ in range(50)] for _ in range(50)]
-    min = -8
-    max = 8
-    for t in np.linspace(0,2*math.pi,30):
-        for s in np.linspace(0,2*math.pi,50):
+    Min = -10
+    Max = 10
+    for t in np.linspace(0,2*math.pi,60):
+        for s in np.linspace(0,2*math.pi,60):
             normal, point = norm(t,s)
-            Luminance = round(abs(np.dot(normal,np.array((1,1,0)))/(np.sqrt(np.dot(normal,normal))*2**0.5)*10))
+            #try:
+            light = np.array((-1,-1,-1))
+            Luminance = round((np.dot(normal,light)/(np.sqrt(np.dot(normal,normal))*np.sqrt(np.dot(light,light)))*11))
+            Luminance = max(Luminance,0)
             point = np.array([[1,0,0],[0,1,1]])@np.array([[np.cos(xAngle),-np.sin(xAngle),0],[np.sin(xAngle),np.cos(xAngle),0],[0,0,1]])@np.array([[1,0,0],[0,np.cos(zAngle),-np.sin(zAngle)],[0,np.sin(zAngle),np.cos(zAngle)]]) @ point
-            x , y = round((point[0]-min)/(max-min)*49) , round((point[1]-min)/(max-min)*49)
-            try:
-                output[x][y] = ".,-~:;=!*#$@"[Luminance]
-            except:
-                pass
-    os.system("clear")
+            x , y = round((point[0]-Min)/(Max-Min)*49) , round((point[1]-Min)/(Max-Min)*49)
+            output[x][y] = "`.,-~:;=!*#$@"[Luminance] if output[x][y] == " " else output[x][y]
+            #except:
+             #   pass
+    #os.system("clear")
     for x in output:
         for i,y in enumerate(x):
             print(f"{y}",end="")
         print("")
 
 
-for i in range(30):
-    render(xAngle = 0.4,zAngle = i*0.2)
-    time.sleep(0.1)
+for i in range(50):
+    render(0,i*0.1)
+    time.sleep(0.5)
     
     
