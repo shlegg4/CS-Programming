@@ -12,6 +12,8 @@ print(data["F1"](2,3))
 
 data = [[0 for _ in range(5)] for _ in range(4)]
 data.append([1,2,3])
+print(data)
+print(data[-2])
 
-print("hi")
-os.system('cls' if os.name == 'nt' else 'clear')
+
+

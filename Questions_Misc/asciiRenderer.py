@@ -95,21 +95,21 @@ def norm(tVal, sVal):
     return norm,point
 
 def render(xAngle = 0,zAngle = 0):
-    output = [[" " for _ in range(50)] for _ in range(50)]
-    Min = -10
-    Max = 10
+    output = [[" " for _ in range(60)] for _ in range(60)]
+    Min = -5
+    Max = 5
     for t in np.linspace(0,2*math.pi,60):
         for s in np.linspace(0,2*math.pi,60):
             normal, point = norm(t,s)
-            #try:
-            light = np.array((-1,-1,-1))
-            Luminance = round((np.dot(normal,light)/(np.sqrt(np.dot(normal,normal))*np.sqrt(np.dot(light,light)))*11))
-            Luminance = max(Luminance,0)
-            point = np.array([[1,0,0],[0,1,1]])@np.array([[np.cos(xAngle),-np.sin(xAngle),0],[np.sin(xAngle),np.cos(xAngle),0],[0,0,1]])@np.array([[1,0,0],[0,np.cos(zAngle),-np.sin(zAngle)],[0,np.sin(zAngle),np.cos(zAngle)]]) @ point
-            x , y = round((point[0]-Min)/(Max-Min)*49) , round((point[1]-Min)/(Max-Min)*49)
-            output[x][y] = "`.,-~:;=!*#$@"[Luminance] if output[x][y] == " " else output[x][y]
-            #except:
-             #   pass
+            try:
+                light = np.array((-1,-1,-1))
+                Luminance = round((np.dot(normal,light)/(np.sqrt(np.dot(normal,normal))*np.sqrt(np.dot(light,light)))*11))
+                Luminance = max(Luminance,0)
+                point = np.array([[1,0,0],[0,1,1]])@np.array([[np.cos(xAngle),-np.sin(xAngle),0],[np.sin(xAngle),np.cos(xAngle),0],[0,0,1]])@np.array([[1,0,0],[0,np.cos(zAngle),-np.sin(zAngle)],[0,np.sin(zAngle),np.cos(zAngle)]]) @ point
+                x , y = round((point[0]-Min)/(Max-Min)*49) , round((point[1]-Min)/(Max-Min)*49)
+                output[x][y] = "`.,-~:;=!*#$@"[Luminance] if output[x][y] == " " else output[x][y]
+            except:
+                pass
     #os.system("clear")
     for x in output:
         for i,y in enumerate(x):

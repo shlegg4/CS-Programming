@@ -1,0 +1,5 @@
+Protocol : "A set of rules for data transmission which are agreed by sender and receiver"
+Protocol Stack : "Many protocols layered on top of one another; only adjacent layers can communicate; Each layer may contain sublayers"
+TCP/IP : "Protocol suite defining internet usage"
+IP : " An 'Internet Protocol' which adds an additional header to outgoing packets which contains the IP address of the sender and receiver"
+
